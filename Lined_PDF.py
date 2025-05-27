@@ -18,10 +18,9 @@ for index, row in df.iterrows():
     pdf.line(10, 34, 200, 34)
 
     #adding lines to page with footer
-    pos_y=34
-    for i in range(25):
-        pdf.line(10, pos_y, 200, pos_y)  # (x1,y1,x2,y2) starting x,y then ending x,y
-        pos_y=pos_y+10
+    for y in range(34, 294, 10):
+        pdf.line(10, y, 200, y)  # (x1,y1,x2,y2) starting x,y then ending x,y
+
     pdf.ln(250)
     pdf.set_font(family="Times", style="i", size=8)  # style="i" for italic
     pdf.cell(w=0, h=8, txt=f"{row["Topic"]} | {page_no}", ln=1, border=0, align="R")
@@ -29,11 +28,10 @@ for index, row in df.iterrows():
 
     for i in range (0,row["Pages"]-1):
         pdf.add_page()
-        pos_y = 14
-        for i in range(27):
-            pdf.line(10, pos_y, 200, pos_y)  # (x1,y1,x2,y2) starting x,y then ending x,y
-            pos_y = pos_y + 10
-            print(pos_y)
+
+        for y in range(14, 294, 10):
+            pdf.line(10, y, 200, y)  # (x1,y1,x2,y2) starting x,y then ending x,y
+
         pdf.ln(274)
         pdf.set_font(family="Times", style="i", size=8) #style="i" for italic
         pdf.cell(w=0, h=8, txt=f"{row["Topic"]} | {page_no}", ln=1, border=0, align="R")
